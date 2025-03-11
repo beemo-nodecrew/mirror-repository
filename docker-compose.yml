@@ -34,7 +34,7 @@ services:
         - type=local,src=/tmp/docker-cache/api
       cache_to:
         - type=local,dest=/tmp/docker-cache/api,mode=max
-    image: imdla/api-image:latest
+    image: ${DOCKER_REGISTRY}/api-image:latest
     networks:
       - db-network
       - api-network
@@ -55,7 +55,7 @@ services:
         - type=local,src=/tmp/docker-cache/client
       cache_to:
         - type=local,dest=/tmp/docker-cache/client,mode=max
-    image: imdla/client-image:latest
+    image: ${DOCKER_REGISTRY}/client-image:latest
     env_file:
       - .env
     ports:
